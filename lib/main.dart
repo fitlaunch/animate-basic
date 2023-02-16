@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animate1/sphere_flip.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -76,20 +77,29 @@ class _HomePageState extends State<HomePage>
               transform: Matrix4.identity()
                 ..rotateY(_animation.value) //Y axis rotate
                 ..rotateZ(.2), //Z axis rotate combined in = tilted rotation.
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3),
-                    )
-                  ],
-                  color: Colors.blueAccent,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SphereFlip(),
+                      ));
+                },
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                    color: Colors.deepPurple,
+                  ),
                 ),
               ),
             );
