@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animate1/cube_3d.dart';
 import 'package:flutter/material.dart';
 
 ///1- create row with containers. 2- enum and path to draw half circles
@@ -179,10 +180,19 @@ class _SphereFlipState extends State<SphereFlip> with TickerProviderStateMixin {
                               ..rotateY(_flipAnimation.value),
                             child: ClipPath(
                               clipper: HalfCircleClipper(side: CircleSide.left),
-                              child: Container(
-                                color: Colors.red,
-                                height: 100,
-                                width: 100,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const Cube3d(),
+                                      ));
+                                },
+                                child: Container(
+                                  color: Colors.red,
+                                  height: 100,
+                                  width: 100,
+                                ),
                               ),
                             ),
                           );
@@ -197,10 +207,19 @@ class _SphereFlipState extends State<SphereFlip> with TickerProviderStateMixin {
                             child: ClipPath(
                               clipper:
                                   HalfCircleClipper(side: CircleSide.right),
-                              child: Container(
-                                color: Colors.black,
-                                height: 100,
-                                width: 100,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const Cube3d(),
+                                      ));
+                                },
+                                child: Container(
+                                  color: Colors.black,
+                                  height: 100,
+                                  width: 100,
+                                ),
                               ),
                             ),
                           );
