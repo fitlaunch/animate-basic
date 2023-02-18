@@ -1,6 +1,7 @@
 # animate1
 
-A new Flutter project.
+A Vandad Animation follow along project.  Combining them all 
+into one project for easier reference.
 
 ## Getting Started
 

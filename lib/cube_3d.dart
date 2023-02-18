@@ -5,7 +5,8 @@ import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 ///Flutter render engine has issues with 3d.  This is close using their current engine.
 
-const widthAndHeight = 100.0;
+const widthAndHeight = 100.0; //? ha, so we can write widthAndHeight many times
+//and not have to write 100 many times.
 
 //animation controllers need stateful to dispose
 class Cube3d extends StatefulWidget {
