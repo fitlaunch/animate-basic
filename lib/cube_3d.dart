@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animate1/rotate_repeat.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
@@ -98,65 +99,74 @@ class _Cube3dState extends State<Cube3d> with TickerProviderStateMixin {
                         ..rotateX(_animation.evaluate(_xController))
                         ..rotateY(_animation.evaluate(_yController))
                         ..rotateZ(_animation.evaluate(_zController)),
-                  child: Stack(
-                    children: [
-                      Container(
-                          //front side
-                          color: Colors.green,
-                          width: widthAndHeight,
-                          height: widthAndHeight),
-                      //left side
-                      Transform(
-                        alignment: Alignment.centerLeft,
-                        transform: Matrix4.identity()..rotateY(pi / 2),
-                        child: Container(
-                            //back side
-                            color: Colors.white70,
+                  child: GestureDetector(
+                    child: Stack(
+                      children: [
+                        Container(
+                            //front side
+                            color: Colors.green,
                             width: widthAndHeight,
                             height: widthAndHeight),
-                      ),
-                      //right side
-                      Transform(
-                        alignment: Alignment.centerRight,
-                        transform: Matrix4.identity()..rotateY(-pi / 2),
-                        child: Container(
-                            //back side
-                            color: Colors.black54,
-                            width: widthAndHeight,
-                            height: widthAndHeight),
-                      ),
-                      Transform(
-                        alignment: Alignment.center,
-                        transform: Matrix4.identity()
-                          ..translate(Vector3(0, 0, -widthAndHeight)),
-                        // nope => ..translate(0, 0, -widthAndHeight),
-                        child: Container(
-                            //back side
-                            color: Colors.blueAccent,
-                            width: widthAndHeight,
-                            height: widthAndHeight),
-                      ),
-                      //top side
-                      Transform(
-                        alignment: Alignment.topCenter,
-                        transform: Matrix4.identity()..rotateX(-pi / 2),
-                        child: Container(
-                            //back side
-                            color: Colors.amber,
-                            width: widthAndHeight,
-                            height: widthAndHeight),
-                      ),
-                      //bottom side
-                      Transform(
-                        alignment: Alignment.bottomCenter,
-                        transform: Matrix4.identity()..rotateX(pi / 2),
-                        child: Container(
-                            //back side
-                            color: Colors.red,
-                            width: widthAndHeight,
-                            height: widthAndHeight),
-                      ),
-                    ],
+                        //left side
+                        Transform(
+                          alignment: Alignment.centerLeft,
+                          transform: Matrix4.identity()..rotateY(pi / 2),
+                          child: Container(
+                              //back side
+                              color: Colors.white70,
+                              width: widthAndHeight,
+                              height: widthAndHeight),
+                        ),
+                        //right side
+                        Transform(
+                          alignment: Alignment.centerRight,
+                          transform: Matrix4.identity()..rotateY(-pi / 2),
+                          child: Container(
+                              //back side
+                              color: Colors.black54,
+                              width: widthAndHeight,
+                              height: widthAndHeight),
+                        ),
+                        Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.identity()
+                            ..translate(Vector3(0, 0, -widthAndHeight)),
+                          // nope => ..translate(0, 0, -widthAndHeight),
+                          child: Container(
+                              //back side
+                              color: Colors.blueAccent,
+                              width: widthAndHeight,
+                              height: widthAndHeight),
+                        ),
+                        //top side
+                        Transform(
+                          alignment: Alignment.topCenter,
+                          transform: Matrix4.identity()..rotateX(-pi / 2),
+                          child: Container(
+                              //back side
+                              color: Colors.amber,
+                              width: widthAndHeight,
+                              height: widthAndHeight),
+                        ),
+                        //bottom side
+                        Transform(
+                          alignment: Alignment.bottomCenter,
+                          transform: Matrix4.identity()..rotateX(pi / 2),
+                          child: Container(
+                              //back side
+                              color: Colors.red,
+                              width: widthAndHeight,
+                              height: widthAndHeight),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RotateRepeat()),
+                      );
+                    },
                   ),
                 );
               },
