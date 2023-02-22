@@ -1,3 +1,4 @@
+import 'package:animate1/hero.dart';
 import 'package:flutter/material.dart';
 
 //MAPP
@@ -29,9 +30,19 @@ class _RotateRepeatState extends State<RotateRepeat>
       body: Center(
           child: RotationTransition(
         turns: _animation,
-        child: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: FlutterLogo(size: 150),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            child: const FlutterLogo(size: 150),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HeroPage(),
+                ),
+              );
+            },
+          ),
         ),
       )),
     );
