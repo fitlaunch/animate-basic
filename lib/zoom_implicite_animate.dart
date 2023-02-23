@@ -1,3 +1,4 @@
+import 'package:animate1/flutter_animate_package.dart';
 import 'package:flutter/material.dart';
 
 class ZoomImpliciteAnimate extends StatefulWidget {
@@ -48,7 +49,7 @@ class _ZoomImpliciteAnimateState extends State<ZoomImpliciteAnimate> {
                 onPressed: () {
                   setState(() {
                     _isZoomIn = !_isZoomIn;
-                    _buttonTitle = _isZoomIn ? 'Zoom Out' : 'Zoom In';
+                    _buttonTitle = _isZoomIn ? 'Zoom In' : 'Zoom Out';
                     _width = _isZoomIn
                         ? defaultWidth
                         : MediaQuery.of(context).size.width;
@@ -56,6 +57,16 @@ class _ZoomImpliciteAnimateState extends State<ZoomImpliciteAnimate> {
                   });
                 },
                 child: Text(_buttonTitle),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FlutterAnimatePackage()),
+                  );
+                },
+                child: const Text('Next Please'),
               ),
             ],
           ),

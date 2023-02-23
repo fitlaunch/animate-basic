@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:animate1/sphere_flip.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SpinSquare extends StatefulWidget {
   const SpinSquare({
@@ -23,12 +24,14 @@ class _SpinSquareState extends State<SpinSquare>
     _controller = AnimationController(
       vsync: this, //SingleTickerProviderStateMixin needed for this
       duration: const Duration(
-        seconds: 3,
+        milliseconds: 200,
       ),
     );
-    _controller.repeat();
+    _controller.loop(count: 6, reverse: true);
+    //.repeat(reverse: true);
     //or => ..repeat();
     _animation = Tween<double>(begin: 0.0, end: 2 * pi).animate(_controller);
+    //end: 0.2 * pi = quick tilt
   }
 
   @override
@@ -41,7 +44,7 @@ class _SpinSquareState extends State<SpinSquare>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page Base'),
+        title: const Text('Spinning Square'),
       ),
       body: Center(
         child: AnimatedBuilder(
@@ -52,7 +55,7 @@ class _SpinSquareState extends State<SpinSquare>
               alignment:
                   Alignment.center, //for this could be origin: Offset (50,50),
               transform: Matrix4.identity()
-                ..rotateY(_animation.value) //Y axis rotate
+                ..rotateX(_animation.value) //X axis rotate
                 ..rotateZ(.2), //Z axis rotate combined in = tilted rotation.
               child: GestureDetector(
                 onTap: () {
