@@ -1,8 +1,7 @@
 import 'dart:ui';
 
+import 'package:animate1/strobe_circle.dart';
 import 'package:flutter/material.dart';
-
-import 'main.dart';
 
 ///explicit animation ROAA Medium
 
@@ -82,7 +81,7 @@ class _RollingRockState extends State<RollingRock>
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const App()),
+                MaterialPageRoute(builder: (context) => const StrobeCircle()),
               );
             },
             child: const Text('Another?'),

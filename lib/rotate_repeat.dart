@@ -13,7 +13,7 @@ class RotateRepeat extends StatefulWidget {
 class _RotateRepeatState extends State<RotateRepeat>
     with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 1),
+    duration: const Duration(milliseconds: 200),
     vsync: this,
   )..repeat(reverse: true);
   late final Animation<double> _animation = CurvedAnimation(
@@ -22,9 +22,9 @@ class _RotateRepeatState extends State<RotateRepeat>
   );
 
   @override
-  void initState() {
+  void dispose() {
     _controller.dispose();
-    super.initState();
+    super.dispose();
   }
 
   @override
