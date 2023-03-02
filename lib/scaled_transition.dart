@@ -1,4 +1,4 @@
-import 'package:animate1/spin_square.dart';
+import 'package:animate1/rive_example/rive_example_app.dart';
 import 'package:flutter/material.dart';
 
 class ScaledTransition extends StatefulWidget {
@@ -48,7 +48,8 @@ class _ScaledTransitionState extends State<ScaledTransition>
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SpinSquare()),
+                  MaterialPageRoute(
+                      builder: (context) => const RiveExampleApp()),
                 );
               },
               child: const Text('Another?'),
