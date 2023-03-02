@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:animate1/spin_square.dart';
+import 'package:animate1/scaled_transition.dart';
 import 'package:flutter/material.dart';
 
 /* 0xFFFFFFFF = A R G B = 32 bits
@@ -47,7 +47,7 @@ class _StrobeCircleState extends State<StrobeCircle> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SpinSquare(),
+                    builder: (context) => const ScaledTransition(),
                   ),
                 );
               },
